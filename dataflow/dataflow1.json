@@ -19,7 +19,15 @@
 					"name": "empdata"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Outputdataset",
+						"type": "DatasetReference"
+					},
+					"name": "Empdetails"
+				}
+			],
 			"transformations": [
 				{
 					"name": "shippingdeptdata"
@@ -63,7 +71,21 @@
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> innerjoin",
-				"innerjoin derive({Full Name} = concat(FIRST_NAME,' ' , LAST_NAME)) ~> derivingfullname"
+				"innerjoin derive({Full Name} = concat(FIRST_NAME,' ' , LAST_NAME)) ~> derivingfullname",
+				"derivingfullname sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          EMPLOYEE_ID,",
+				"          {Full Name},",
+				"          EMAIL,",
+				"          PHONE_NUMBER,",
+				"          DEPARTMENT_NAME",
+				"     )) ~> Empdetails"
 			]
 		}
 	}
