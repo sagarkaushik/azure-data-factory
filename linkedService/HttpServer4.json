@@ -1,0 +1,12 @@
+{
+	"name": "HttpServer4",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://gist.githubusercontent.com/kevin336/5ea0e96813aa88871c20d315b5bf445c/raw/d8fcf5c2630ba12dd8802a2cdd5480621b6a0ea6/departments.csv",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
