@@ -1,0 +1,47 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase4",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Employee_Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Full_Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Email_Id",
+				"type": "varchar"
+			},
+			{
+				"name": "Ph_Num",
+				"type": "varchar"
+			},
+			{
+				"name": "Job_Id",
+				"type": "varchar"
+			},
+			{
+				"name": "Department_Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Department_Name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Employee"
+		}
+	}
+}
