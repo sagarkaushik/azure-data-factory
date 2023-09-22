@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText9",
+						"referenceName": "DelimitedText10",
 						"type": "DatasetReference"
 					},
 					"name": "ETLpipelineOutput"
@@ -28,12 +28,12 @@
 			],
 			"scriptLines": [
 				"source(output(",
-				"          EMPLOYEE_ID as integer,",
+				"          EMPLOYEE_ID as string,",
 				"          {Full Name} as string,",
 				"          EMAIL as string,",
 				"          PHONE_NUMBER as string,",
 				"          JOB_ID as string,",
-				"          DEPARTMENT_ID as integer,",
+				"          DEPARTMENT_ID as string,",
 				"          DEPARTMENT_NAME as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
