@@ -1,0 +1,54 @@
+{
+	"name": "Fact_Stock_Price_AzureSqlTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FACT_STOCK_PRICE",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "SurrKey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Company_id",
+				"type": "varchar"
+			},
+			{
+				"name": "company_name",
+				"type": "varchar"
+			},
+			{
+				"name": "currency",
+				"type": "varchar"
+			},
+			{
+				"name": "LatestPrice",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "dayLow",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "dayHigh",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "IsActive",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Fact_Stock_Price"
+		}
+	}
+}
