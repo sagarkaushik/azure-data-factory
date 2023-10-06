@@ -1,0 +1,65 @@
+{
+	"name": "Dim_Company_Table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase5",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "symbol",
+				"type": "varchar"
+			},
+			{
+				"name": "longName",
+				"type": "varchar"
+			},
+			{
+				"name": "address1",
+				"type": "varchar"
+			},
+			{
+				"name": "city",
+				"type": "varchar"
+			},
+			{
+				"name": "state_name",
+				"type": "varchar"
+			},
+			{
+				"name": "zip",
+				"type": "varchar"
+			},
+			{
+				"name": "country",
+				"type": "varchar"
+			},
+			{
+				"name": "phone",
+				"type": "varchar"
+			},
+			{
+				"name": "website",
+				"type": "varchar"
+			},
+			{
+				"name": "industry",
+				"type": "varchar"
+			},
+			{
+				"name": "fullTimeEmployees",
+				"type": "varchar"
+			},
+			{
+				"name": "longBusinessSummary",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dim_company"
+		}
+	}
+}
