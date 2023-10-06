@@ -10,12 +10,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "voutput.csv",
+				"fileName": "voutput.json",
 				"container": "output"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "",
-			"firstRowAsHeader": true,
+			"firstRowAsHeader": false,
 			"quoteChar": ""
 		},
 		"schema": []
