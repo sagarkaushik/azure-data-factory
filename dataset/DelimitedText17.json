@@ -1,0 +1,376 @@
+{
+	"name": "DelimitedText17",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "jsonforamt.json",
+				"container": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "",
+			"firstRowAsHeader": true,
+			"quoteChar": ""
+		},
+		"schema": [
+			{
+				"name": "{\"avgTotalVolume\":66743176",
+				"type": "String"
+			},
+			{
+				"name": "\"calculationPrice\":\"close\"",
+				"type": "String"
+			},
+			{
+				"name": "\"change\":1.25",
+				"type": "String"
+			},
+			{
+				"name": "\"changePercent\":0.0072",
+				"type": "String"
+			},
+			{
+				"name": "\"close\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"closeSource\":\"official\"",
+				"type": "String"
+			},
+			{
+				"name": "\"closeTime\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"companyName\":\"Apple Inc\"",
+				"type": "String"
+			},
+			{
+				"name": "\"currency\":\"USD\"",
+				"type": "String"
+			},
+			{
+				"name": "\"delayedPrice\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"delayedPriceTime\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"extendedChange\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"extendedChangePercent\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"extendedPrice\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"extendedPriceTime\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"high\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"highSource\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"highTime\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"iexAskPrice\":0",
+				"type": "String"
+			},
+			{
+				"name": "\"iexAskSize\":0",
+				"type": "String"
+			},
+			{
+				"name": "\"iexBidPrice\":0",
+				"type": "String"
+			},
+			{
+				"name": "\"iexBidSize\":0",
+				"type": "String"
+			},
+			{
+				"name": "\"iexClose\":174.98",
+				"type": "String"
+			},
+			{
+				"name": "\"iexCloseTime\":1696535999919",
+				"type": "String"
+			},
+			{
+				"name": "\"iexLastUpdated\":1696535999919",
+				"type": "String"
+			},
+			{
+				"name": "\"iexMarketPercent\":44.531080850094014",
+				"type": "String"
+			},
+			{
+				"name": "\"iexOpen\":173.76",
+				"type": "String"
+			},
+			{
+				"name": "\"iexOpenTime\":1696512600067",
+				"type": "String"
+			},
+			{
+				"name": "\"iexRealtimePrice\":174.98",
+				"type": "String"
+			},
+			{
+				"name": "\"iexRealtimeSize\":200",
+				"type": "String"
+			},
+			{
+				"name": "\"iexVolume\":781565",
+				"type": "String"
+			},
+			{
+				"name": "\"lastTradeTime\":1696535999919",
+				"type": "String"
+			},
+			{
+				"name": "\"latestPrice\":174.91",
+				"type": "String"
+			},
+			{
+				"name": "\"latestSource\":\"Close\"",
+				"type": "String"
+			},
+			{
+				"name": "\"latestTime\":\"October 5",
+				"type": "String"
+			},
+			{
+				"name": " 2023\"",
+				"type": "String"
+			},
+			{
+				"name": "\"latestUpdate\":1696536000306",
+				"type": "String"
+			},
+			{
+				"name": "\"latestVolume\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"low\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"lowSource\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"lowTime\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"marketCap\":2734583519120",
+				"type": "String"
+			},
+			{
+				"name": "\"oddLotDelayedPrice\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"oddLotDelayedPriceTime\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"open\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"openTime\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"openSource\":\"official\"",
+				"type": "String"
+			},
+			{
+				"name": "\"peRatio\":29.4",
+				"type": "String"
+			},
+			{
+				"name": "\"previousClose\":173.66",
+				"type": "String"
+			},
+			{
+				"name": "\"previousVolume\":53020286",
+				"type": "String"
+			},
+			{
+				"name": "\"primaryExchange\":\"NASDAQ\"",
+				"type": "String"
+			},
+			{
+				"name": "\"symbol\":\"AAPL\"",
+				"type": "String"
+			},
+			{
+				"name": "\"volume\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"week52High\":197.7",
+				"type": "String"
+			},
+			{
+				"name": "\"week52Low\":123.48",
+				"type": "String"
+			},
+			{
+				"name": "\"ytdChange\":0.3512801959078541",
+				"type": "String"
+			},
+			{
+				"name": "\"isUSMarketOpen\":false",
+				"type": "String"
+			},
+			{
+				"name": "\"exchange\":\"NASDAQ\"",
+				"type": "String"
+			},
+			{
+				"name": "\"industry\":\"Electronic Computer Manufacturing \"",
+				"type": "String"
+			},
+			{
+				"name": "\"website\":\"https://www.apple.com/\"",
+				"type": "String"
+			},
+			{
+				"name": "\"description\":\"Apple Inc. is an American multinational technology company headquartered in Cupertino",
+				"type": "String"
+			},
+			{
+				"name": " California. Apple is the worlds largest technology company by revenue",
+				"type": "String"
+			},
+			{
+				"name": " with US$394.3 billion in 2022 revenue. As of March 2023",
+				"type": "String"
+			},
+			{
+				"name": " Apple is the worlds biggest company by market capitalization.\"",
+				"type": "String"
+			},
+			{
+				"name": "\"CEO\":\"Timothy Cook\"",
+				"type": "String"
+			},
+			{
+				"name": "\"securityName\":\"Apple Inc\"",
+				"type": "String"
+			},
+			{
+				"name": "\"issueType\":\"cs\"",
+				"type": "String"
+			},
+			{
+				"name": "\"sector\":\"Manufacturing\"",
+				"type": "String"
+			},
+			{
+				"name": "\"primarySicCode\":3571",
+				"type": "String"
+			},
+			{
+				"name": "\"employees\":164000",
+				"type": "String"
+			},
+			{
+				"name": "\"tags\":[\"Electronic Technology\"",
+				"type": "String"
+			},
+			{
+				"name": "Telecommunications Equipment",
+				"type": "String"
+			},
+			{
+				"name": "Manufacturing",
+				"type": "String"
+			},
+			{
+				"name": "\"Electronic Computer Manufacturing \"]",
+				"type": "String"
+			},
+			{
+				"name": "\"address\":\"1 Apple Park Way\"",
+				"type": "String"
+			},
+			{
+				"name": "\"address2\":null",
+				"type": "String"
+			},
+			{
+				"name": "\"state\":\"California\"",
+				"type": "String"
+			},
+			{
+				"name": "\"city\":\"Cupertino\"",
+				"type": "String"
+			},
+			{
+				"name": "\"zip\":\"95014-0642\"",
+				"type": "String"
+			},
+			{
+				"name": "\"country\":\"United States\"",
+				"type": "String"
+			},
+			{
+				"name": "\"phone\":\"14089961010\"",
+				"type": "String"
+			},
+			{
+				"name": "\"effectiveIntegrationRuntime\":\"AutoResolveIntegrationRuntime (East US)\"",
+				"type": "String"
+			},
+			{
+				"name": "\"executionDuration\":2",
+				"type": "String"
+			},
+			{
+				"name": "\"durationInQueue\":{\"integrationRuntimeQueue\":0}",
+				"type": "String"
+			},
+			{
+				"name": "\"billingReference\":{\"activityType\":\"ExternalActivity\"",
+				"type": "String"
+			},
+			{
+				"name": "\"billableDuration\":[{\"meterType\":\"AzureIR\"",
+				"type": "String"
+			},
+			{
+				"name": "\"duration\":0.016666666666666666",
+				"type": "String"
+			},
+			{
+				"name": "\"unit\":\"Hours\"}]}}",
+				"type": "String"
+			}
+		]
+	}
+}
