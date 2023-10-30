@@ -238,7 +238,17 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     saveOrder: 2,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          SurrKey = SQL_SurrKey,",
+				"          Company_id = SQL_Company_id,",
+				"          company_name = SQL_company_name,",
+				"          currency = SQL_currency,",
+				"          LatestPrice = SQL_LatestPrice,",
+				"          dayLow = SQL_dayLow,",
+				"          dayHigh = SQL_dayHigh,",
+				"          IsActive = SQL_IsActive",
+				"     )) ~> sink2"
 			]
 		}
 	}
