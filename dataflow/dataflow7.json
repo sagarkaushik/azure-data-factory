@@ -29,7 +29,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "Fact_Stock_Price_AzureSqlTable",
+						"referenceName": "AzureSqlTable3",
 						"type": "DatasetReference"
 					},
 					"name": "sink2"
@@ -47,6 +47,12 @@
 				},
 				{
 					"name": "Existingrows"
+				},
+				{
+					"name": "select2"
+				},
+				{
+					"name": "derivedColumn2"
 				},
 				{
 					"name": "alterRow1"
@@ -168,7 +174,20 @@
 				"     multiple: true,",
 				"     broadcast: 'auto')~> lookup1",
 				"lookup1 filter(!isNull(SQL_Company_id)) ~> Existingrows",
-				"Existingrows alterRow(updateIf(1==1)) ~> alterRow1",
+				"Existingrows select(mapColumn(",
+				"          SQL_SurrKey,",
+				"          SQL_Company_id,",
+				"          SQL_company_name,",
+				"          SQL_currency,",
+				"          SQL_LatestPrice,",
+				"          SQL_dayLow,",
+				"          SQL_dayHigh,",
+				"          SQL_IsActive",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"select2 derive(SQL_IsActive = 0) ~> derivedColumn2",
+				"derivedColumn2 alterRow(updateIf(1==1)) ~> alterRow1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -188,7 +207,7 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     saveOrder: 2,",
+				"     saveOrder: 1,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
 				"          Company_id = symbol,",
@@ -207,30 +226,19 @@
 				"          company_name as string,",
 				"          currency as string,",
 				"          LatestPrice as double,",
-				"          dayLow as double,",
-				"          dayHigh as double,",
+				"          dayLow as string,",
+				"          dayHigh as string,",
 				"          IsActive as integer",
 				"     ),",
 				"     deletable:false,",
-				"     insertable:false,",
-				"     updateable:true,",
+				"     insertable:true,",
+				"     updateable:false,",
 				"     upsertable:false,",
-				"     keys:['SurrKey'],",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     saveOrder: 1,",
-				"     errorHandlingOption: 'stopOnFirstError',",
-				"     mapColumn(",
-				"          Company_id = SQL_Company_id,",
-				"          company_name = SQL_company_name,",
-				"          currency = SQL_currency,",
-				"          LatestPrice = SQL_LatestPrice,",
-				"          dayLow = SQL_dayLow,",
-				"          dayHigh = SQL_dayHigh,",
-				"          IsActive = SQL_IsActive,",
-				"          SurrKey = SQL_SurrKey",
-				"     )) ~> sink2"
+				"     saveOrder: 2,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
 			]
 		}
 	}
