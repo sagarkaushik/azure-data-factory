@@ -1,0 +1,75 @@
+{
+	"name": "dataflow4",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText10",
+						"type": "DatasetReference"
+					},
+					"name": "ETLpipelineOutput"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					},
+					"name": "targettable"
+				}
+			],
+			"transformations": [
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EMPLOYEE_ID as string,",
+				"          {Full Name} as string,",
+				"          EMAIL as string,",
+				"          PHONE_NUMBER as string,",
+				"          JOB_ID as string,",
+				"          DEPARTMENT_ID as string,",
+				"          DEPARTMENT_NAME as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> ETLpipelineOutput",
+				"ETLpipelineOutput alterRow(upsertIf(1==1)) ~> alterRow1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Employee_Id as integer,",
+				"          Full_Name as string,",
+				"          Email_Id as string,",
+				"          Ph_Num as string,",
+				"          Job_Id as string,",
+				"          Department_Id as integer,",
+				"          Department_Name as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:false,",
+				"     upsertable:true,",
+				"     keys:['Employee_Id'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Employee_Id = EMPLOYEE_ID,",
+				"          Full_Name = {Full Name},",
+				"          Email_Id = EMAIL,",
+				"          Ph_Num = PHONE_NUMBER,",
+				"          Job_Id = JOB_ID,",
+				"          Department_Id = DEPARTMENT_ID,",
+				"          Department_Name = DEPARTMENT_NAME",
+				"     )) ~> targettable"
+			]
+		}
+	}
+}

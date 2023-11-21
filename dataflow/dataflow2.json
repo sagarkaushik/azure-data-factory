@@ -1,0 +1,97 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText6",
+						"type": "DatasetReference"
+					},
+					"name": "rawempdata",
+					"description": "Raw Employee Data from ADLS "
+				},
+				{
+					"dataset": {
+						"referenceName": "DelimitedText7",
+						"type": "DatasetReference"
+					},
+					"name": "rawdeptdata",
+					"description": "Raw Department Data from ADLS "
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText8",
+						"type": "DatasetReference"
+					},
+					"name": "transformeddata"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Shippingdata",
+					"description": "Filtering rows using expressions on columns 'DEPARTMENT_ID'\nShipping data from whole data set"
+				},
+				{
+					"name": "innerjoin"
+				},
+				{
+					"name": "FullName"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EMPLOYEE_ID as string,",
+				"          FIRST_NAME as string,",
+				"          LAST_NAME as string,",
+				"          EMAIL as string,",
+				"          PHONE_NUMBER as string,",
+				"          HIRE_DATE as string,",
+				"          JOB_ID as string,",
+				"          SALARY as string,",
+				"          COMMISSION_PCT as string,",
+				"          MANAGER_ID as string,",
+				"          DEPARTMENT_ID as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> rawempdata",
+				"source(output(",
+				"          DEPARTMENT_ID as string,",
+				"          DEPARTMENT_NAME as string,",
+				"          MANAGER_ID as string,",
+				"          LOCATION_ID as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> rawdeptdata",
+				"rawdeptdata filter(equals(DEPARTMENT_ID, '50')) ~> Shippingdata",
+				"rawempdata, Shippingdata join(rawempdata@DEPARTMENT_ID == rawdeptdata@DEPARTMENT_ID,",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> innerjoin",
+				"innerjoin derive({Full Name} = concat(FIRST_NAME, LAST_NAME)) ~> FullName",
+				"FullName sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          EMPLOYEE_ID,",
+				"          {Full Name},",
+				"          EMAIL,",
+				"          PHONE_NUMBER,",
+				"          JOB_ID,",
+				"          DEPARTMENT_ID = rawdeptdata@DEPARTMENT_ID,",
+				"          DEPARTMENT_NAME",
+				"     )) ~> transformeddata"
+			]
+		}
+	}
+}

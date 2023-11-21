@@ -1,0 +1,287 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageforstocks",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "voutput.json",
+				"container": "output"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"avgTotalVolume": {
+					"type": "integer"
+				},
+				"calculationPrice": {
+					"type": "string"
+				},
+				"change": {
+					"type": "number"
+				},
+				"changePercent": {
+					"type": "number"
+				},
+				"close": {
+					"type": "null"
+				},
+				"closeSource": {
+					"type": "string"
+				},
+				"closeTime": {
+					"type": "null"
+				},
+				"companyName": {
+					"type": "string"
+				},
+				"currency": {
+					"type": "string"
+				},
+				"delayedPrice": {
+					"type": "null"
+				},
+				"delayedPriceTime": {
+					"type": "null"
+				},
+				"extendedChange": {
+					"type": "null"
+				},
+				"extendedChangePercent": {
+					"type": "null"
+				},
+				"extendedPrice": {
+					"type": "null"
+				},
+				"extendedPriceTime": {
+					"type": "null"
+				},
+				"high": {
+					"type": "null"
+				},
+				"highSource": {
+					"type": "null"
+				},
+				"highTime": {
+					"type": "null"
+				},
+				"iexAskPrice": {
+					"type": "integer"
+				},
+				"iexAskSize": {
+					"type": "integer"
+				},
+				"iexBidPrice": {
+					"type": "integer"
+				},
+				"iexBidSize": {
+					"type": "integer"
+				},
+				"iexClose": {
+					"type": "number"
+				},
+				"iexCloseTime": {
+					"type": "integer"
+				},
+				"iexLastUpdated": {
+					"type": "integer"
+				},
+				"iexMarketPercent": {
+					"type": "number"
+				},
+				"iexOpen": {
+					"type": "number"
+				},
+				"iexOpenTime": {
+					"type": "integer"
+				},
+				"iexRealtimePrice": {
+					"type": "number"
+				},
+				"iexRealtimeSize": {
+					"type": "integer"
+				},
+				"iexVolume": {
+					"type": "integer"
+				},
+				"lastTradeTime": {
+					"type": "integer"
+				},
+				"latestPrice": {
+					"type": "number"
+				},
+				"latestSource": {
+					"type": "string"
+				},
+				"latestTime": {
+					"type": "string"
+				},
+				"latestUpdate": {
+					"type": "integer"
+				},
+				"latestVolume": {
+					"type": "null"
+				},
+				"low": {
+					"type": "null"
+				},
+				"lowSource": {
+					"type": "null"
+				},
+				"lowTime": {
+					"type": "null"
+				},
+				"marketCap": {
+					"type": "integer"
+				},
+				"oddLotDelayedPrice": {
+					"type": "null"
+				},
+				"oddLotDelayedPriceTime": {
+					"type": "null"
+				},
+				"open": {
+					"type": "null"
+				},
+				"openTime": {
+					"type": "null"
+				},
+				"openSource": {
+					"type": "string"
+				},
+				"peRatio": {
+					"type": "number"
+				},
+				"previousClose": {
+					"type": "number"
+				},
+				"previousVolume": {
+					"type": "integer"
+				},
+				"primaryExchange": {
+					"type": "string"
+				},
+				"symbol": {
+					"type": "string"
+				},
+				"volume": {
+					"type": "null"
+				},
+				"week52High": {
+					"type": "number"
+				},
+				"week52Low": {
+					"type": "number"
+				},
+				"ytdChange": {
+					"type": "number"
+				},
+				"isUSMarketOpen": {
+					"type": "boolean"
+				},
+				"exchange": {
+					"type": "string"
+				},
+				"industry": {
+					"type": "string"
+				},
+				"website": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"CEO": {
+					"type": "string"
+				},
+				"securityName": {
+					"type": "string"
+				},
+				"issueType": {
+					"type": "string"
+				},
+				"sector": {
+					"type": "string"
+				},
+				"primarySicCode": {
+					"type": "integer"
+				},
+				"employees": {
+					"type": "integer"
+				},
+				"tags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"address": {
+					"type": "string"
+				},
+				"address2": {
+					"type": "null"
+				},
+				"state": {
+					"type": "string"
+				},
+				"city": {
+					"type": "string"
+				},
+				"zip": {
+					"type": "string"
+				},
+				"country": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"effectiveIntegrationRuntime": {
+					"type": "string"
+				},
+				"executionDuration": {
+					"type": "integer"
+				},
+				"durationInQueue": {
+					"type": "object",
+					"properties": {
+						"integrationRuntimeQueue": {
+							"type": "integer"
+						}
+					}
+				},
+				"billingReference": {
+					"type": "object",
+					"properties": {
+						"activityType": {
+							"type": "string"
+						},
+						"billableDuration": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"meterType": {
+										"type": "string"
+									},
+									"duration": {
+										"type": "number"
+									},
+									"unit": {
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
